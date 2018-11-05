@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Setup
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="addBeverage()">Add Beverage</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-list>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 1'" [beverages]="availableBeverages" [index]="0" [aSelectedBeverage]="beverages[0]" (finalProduct)="setSlot($event,0)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 2'" [beverages]="availableBeverages" [index]="1" [aSelectedBeverage]="beverages[1]" (finalProduct)="setSlot($event,1)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 3'" [beverages]="availableBeverages" [index]="2" [aSelectedBeverage]="beverages[2]" (finalProduct)="setSlot($event,2)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 4'" [beverages]="availableBeverages" [index]="3" [aSelectedBeverage]="beverages[3]" (finalProduct)="setSlot($event,3)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 5'" [beverages]="availableBeverages" [index]="4" [aSelectedBeverage]="beverages[4]" (finalProduct)="setSlot($event,4)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 6'" [beverages]="availableBeverages" [index]="5" [aSelectedBeverage]="beverages[5]" (finalProduct)="setSlot($event,5)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 7'" [beverages]="availableBeverages" [index]="6" [aSelectedBeverage]="beverages[6]" (finalProduct)="setSlot($event,6)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 8'" [beverages]="availableBeverages" [index]="7" [aSelectedBeverage]="beverages[7]" (finalProduct)="setSlot($event,7)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 9'" [beverages]="availableBeverages" [index]="8" [aSelectedBeverage]="beverages[8]" (finalProduct)="setSlot($event,8)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 10'" [beverages]="availableBeverages" [index]="9" [aSelectedBeverage]="beverages[9]" (finalProduct)="setSlot($event,9)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 11'" [beverages]="availableBeverages" [index]="10" [aSelectedBeverage]="beverages[10]" (finalProduct)="setSlot($event,10)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 12'" [beverages]="availableBeverages" [index]="12" [aSelectedBeverage]="beverages[11]" (finalProduct)="setSlot($event,11)"></custom-slot-view>
+      </ion-item>
+      <ion-item>
+        <custom-slot-view [aLabel]="'Slot 13'" [beverages]="availableBeverages" [index]="13" [aSelectedBeverage]="beverages[12]" (finalProduct)="setSlot($event,12)"></custom-slot-view>
+      </ion-item>
+    </ion-list>
+    <button ion-button (click)="save()">Save Settings</button>
+</ion-content>

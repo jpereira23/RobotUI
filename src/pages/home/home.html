@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Robot Code</ion-label>
+    <ion-input type="text" [(ngModel)]="robotID"></ion-input>
+  </ion-item>
+
+  <button ion-button (click)="confirm()">Confirm</button>
+
+</ion-content>

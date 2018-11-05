@@ -1,0 +1,13 @@
+<div id="thePopover" (click)="presentPopover($event)">
+  <ion-grid>
+    <ion-row>
+      <ion-col >
+        {{ aLabel }}
+      </ion-col>
+      <ion-col *ngIf="selectedBeverage != null">
+        {{ selectedBeverage.drinkName }}
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</div>

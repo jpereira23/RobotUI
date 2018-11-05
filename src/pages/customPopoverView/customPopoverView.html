@@ -1,0 +1,5 @@
+<ion-list>
+  <ion-item *ngFor="let beverage of beverages; let i = index" (click)="selectDrink(i)">
+    {{ beverage.drinkName }}
+  </ion-item>
+</ion-list>
