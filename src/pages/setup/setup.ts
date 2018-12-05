@@ -5,9 +5,6 @@ import { DataService } from '../data.service';
 import { Beverage } from '../models/beverage';
 import { AddBeveragePage } from '../addBeverage/addBeverage';
 
-
-
-
 @Component({
   selector: 'page-setup',
   templateUrl: 'setup.html'
@@ -22,13 +19,8 @@ export class SetupPage{
   constructor(private navCtrl: NavController, private storage: Storage, private dataService: DataService, private ref: ChangeDetectorRef){
     this.storage.get('botConfiguration').then((data) => {
         this.bartendID = data.bartendId;
-        this.dataService.getSlots(this.bartendID).subscribe((data) => {
-          console.log("hello");
-            this.configureSlots(data.data);
-
-        });
+        this.dataService.getSlots();
     });
-
     this.storage.get('beverages').then((data) => {
       if(data != null){
         for(var i = 0; i < data.length; i++){
@@ -73,7 +65,7 @@ export class SetupPage{
   }
 
   save(){
-    this.dataService.saveSlots(this.beverages, this.bartendID).subscribe();
+    this.dataService.saveSlots(this.beverages);
   }
 
   addBeverage(){

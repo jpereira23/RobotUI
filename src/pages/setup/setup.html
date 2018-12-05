@@ -50,5 +50,12 @@
         <custom-slot-view [aLabel]="'Slot 13'" [beverages]="availableBeverages" [index]="13" [aSelectedBeverage]="beverages[12]" (finalProduct)="setSlot($event,12)"></custom-slot-view>
       </ion-item>
     </ion-list>
-    <button ion-button (click)="save()">Save Settings</button>
+
 </ion-content>
+<ion-footer>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="save()">Save Settings</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-footer>

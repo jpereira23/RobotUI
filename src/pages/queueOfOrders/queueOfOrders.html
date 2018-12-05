@@ -6,12 +6,10 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
-    {{ drinks.length }}
-    <ion-card *ngFor="let drink of drinks">
+    <ion-card *ngFor="let drink of dataService.drinks">
       <ion-item>
         <h2>{{ drink.username }}</h2>
         <p>{{ drink.drinkName }}</p>
       </ion-item>
     </ion-card>
-  <button ion-button (click)="sendData()">Drink Finished</button>
 </ion-content>

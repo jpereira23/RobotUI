@@ -29,7 +29,7 @@ export class HomePage {
     var robot = new Robot();
     robot.bartendId = this.robotID;
     this.storage.set('botConfiguration', robot);
-    this.dataService.configureRobot(robot).subscribe();
+    this.dataService.configureRobot(robot);
     this.navCtrl.pop();
 
   }
