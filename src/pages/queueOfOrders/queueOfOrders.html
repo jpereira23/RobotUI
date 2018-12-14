@@ -3,6 +3,15 @@
     <ion-title>
       Welcome
     </ion-title>
+    <ion-buttons start>
+      <button *ngIf="connected == false && inProgress == false" ion-button round color="danger">
+        <ion-icon name="bluetooth"></ion-icon>
+      </button>
+      <button *ngIf="connected == true && inProgress == false" ion-button round color="primary">
+        <ion-icon name="bluetooth"></ion-icon>
+      </button>
+      <ion-spinner *ngIf="inProgress == true"></ion-spinner>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content padding>

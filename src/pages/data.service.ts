@@ -38,14 +38,28 @@ export class DataService {
     });
   }
 
+  robotDisconnected(){
+    var theObject = {
+      theSwitch: "off",
+      bartendId: this.robot.bartendId
+    };
+    this.http.post<any>(this.url + 'blueConnection', theObject, httpOptions).subscribe();
+  }
+
   triggerRequest(){
     this.http.post<Robot>(this.url + 'triggerRequest', this.robot, httpOptions).subscribe();
   }
 
+  robotConnected(){
+    var theObject = {
+      theSwitch: "on",
+      bartendId: this.robot.bartendId
+    };
+    this.http.post<any>(this.url + 'blueConnection', theObject, httpOptions).subscribe();
+  }
   getDrinks(){
 
     if(this.robot != null){
-
       this.socket.on(this.robot.bartendId, (data) => {
         console.log(data.username);
         if(data.username == "null")
@@ -64,7 +78,6 @@ export class DataService {
           }
           this.receivedSocket$.next(true);
         }
-
       });
     }
   }

@@ -15,15 +15,18 @@ import { BluetoothService } from '../bluetooth.service';
 export class QueueOfOrders{
 
   connected: boolean = false;
+  inProgress: boolean = false;
   constructor(public navCtrl: NavController, private dataService: DataService, private ref: ChangeDetectorRef, private bluetoothService: BluetoothService, private alertCtrl: AlertController){
     this.dataService.triggerRequest();
 
   }
 
   ionViewWillEnter(){
+    //this.dataService.robotConnected();
     this.dataService.receivedSocket$.subscribe(data => {
       this.takeOrders();
     });
+
 
     this.dataService.robot$.subscribe(data => {
       if(data == null){
@@ -34,21 +37,25 @@ export class QueueOfOrders{
     });
 
     this.dataService.getBotConfiguration();
+
   }
 
   connectToRobot(){
+    //this.dataService.robotDisconnected();
     var availabilityPromise = this.bluetoothService.getAllBluetoothDevices();
+
     availabilityPromise.then((available) => {
+      this.inProgress = true;
       if(available == true){
         var theConnect = this.bluetoothService.connect();
         theConnect.subscribe(success => {
+          this.dataService.robotConnected();
           this.connected = true;
-          console.log("Hello??");
+          this.inProgress = false;
           this.dataService.getDrinks();
         }, error => {
-          /**
-            * if bluetooth cant connect
-            **/
+          this.inProgress = false;
+          //if bluetooth cant connect
           const alert = this.alertCtrl.create({
             title: 'Robot Error',
             subTitle: 'Internal issues with robot (Bluetooth)',
@@ -56,7 +63,6 @@ export class QueueOfOrders{
               text: 'OK',
               role: 'Cancel',
               handler: () => {
-
               }
             }]
           });
